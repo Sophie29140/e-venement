@@ -60,7 +60,7 @@ class Test
     {
         // create
         $event = [
-            'metaEvent' => {'id' : 1},
+            'metaEvent' => ['id' => 1],
             'translations' => [
                 'fr'  => [ 
                     'name'        => 'Saut Homme',
@@ -77,7 +77,8 @@ class Test
                     'description' => 'Bungee Jumping of a bridge above a river',
                     'extradesc'   => 'xxxxxxxxxxxx',
                     'extraspec'   => 'zzzzzzzzzzzz',
-                  ],
+                  ]
+                ],
              'imageId' => 4
         ];
         $res = $this->request($endpoint = '/api/v2/events', 'POST', $customer);
