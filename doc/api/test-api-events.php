@@ -60,7 +60,7 @@ class Test
     {
         // create
         $event = [
-            'metaEvent' => ['id' => 1],
+            'metaEvent.id' => 1,
             'translations' => [
                 'fr'  => [ 
                     'name'        => 'Saut Homme',
@@ -81,7 +81,7 @@ class Test
                 ],
              'imageId' => 4
         ];
-        $res = $this->request($endpoint = '/api/v2/events', 'POST', $customer);
+        $res = $this->request($endpoint = '/api/v2/events', 'POST', $event);
         $this->printResult($endpoint, 'create', $res);
         $data = $res->getData(true);
         
