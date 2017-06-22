@@ -118,7 +118,7 @@ class Test
              'imageId' => 4
         ];
         $res = $this->request($endpoint = '/api/v2/events/9', 'POST', $event);
-        $this->printResult($endpoint, 'create', $res);
+        $this->printResult($endpoint, 'update', $res);
         $data = $res->getData(true);
         
         if ( !$res->isSuccess() ) {
