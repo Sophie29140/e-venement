@@ -60,7 +60,7 @@ class Test
     {
         // create
         $event = [
-        //    'metaEvent.id' => 1,
+            'metaEvent.id' => 1,
             'translations' => [
                 'fr'  => [ 
                     'name'        => 'Saut Homme',
