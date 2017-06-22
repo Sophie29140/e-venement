@@ -59,29 +59,65 @@ class Test
     public function testEvents()
     {
         // create
+        //$event = [
+        //    'metaEvent.id' => 1,
+        //    'translations' => [
+        //        'fr'  => [ 
+        //            'name'        => 'Saut Homme',
+        //            'subtitle'    => 'saut a  l elastique',
+        //            'short_name'  => 'Junior',
+        //            'description' => 'Saut d un pont a l elastique au dessus d une riviere.',
+        //            'extradesc'   => 'xxxxxxxxxxxx',
+        //            'extraspec'   => 'zzzzzzzzzzzz',
+        //            ],
+        //        'en'  => [ 
+        //            'name'        => 'Jump Men',
+        //            'subtitle'    => 'bungee jumping',
+        //            'short_name'  => 'Junior',
+        //            'description' => 'Bungee Jumping of a bridge above a river',
+        //            'extradesc'   => 'xxxxxxxxxxxx',
+        //            'extraspec'   => 'zzzzzzzzzzzz',
+        //          ]
+        //        ],
+        //     'imageId' => 4
+        //];
+       // $res = $this->request($endpoint = '/api/v2/events', 'POST', $event);
+       // $this->printResult($endpoint, 'create', $res);
+       // $data = $res->getData(true);
+        
+       // if ( !$res->isSuccess() ) {
+       //     echo "Aborting...\n";
+       //     return $this;
+       // }
+        
+        // list
+        $res = $this->request($endpoint = '/api/v2/events', 'GET');
+        $this->printResult($endpoint, 'list', $res);
+        
+        // update
         $event = [
             'metaEvent.id' => 1,
             'translations' => [
                 'fr'  => [ 
-                    'name'        => 'Saut Homme',
-                    'subtitle'    => 'saut a  l elastique',
-                    'short_name'  => 'Junior',
-                    'description' => 'Saut d un pont a l elastique au dessus d une riviere.',
+                    'name'        => 'Filets jaunes',
+                    'subtitle'    => 'Filets jaunes',
+                    'short_name'  => 'FJ',
+                    'description' => 'Filets jaunes',
                     'extradesc'   => 'xxxxxxxxxxxx',
                     'extraspec'   => 'zzzzzzzzzzzz',
                     ],
                 'en'  => [ 
-                    'name'        => 'Jump Men',
-                    'subtitle'    => 'bungee jumping',
-                    'short_name'  => 'Junior',
-                    'description' => 'Bungee Jumping of a bridge above a river',
+                    'name'        => 'Filets jaunes',
+                    'subtitle'    => 'Filets jaunes',
+                    'short_name'  => 'FJ',
+                    'description' => 'Filets jaunes',
                     'extradesc'   => 'xxxxxxxxxxxx',
                     'extraspec'   => 'zzzzzzzzzzzz',
                   ]
                 ],
              'imageId' => 4
         ];
-        $res = $this->request($endpoint = '/api/v2/events', 'POST', $event);
+        $res = $this->request($endpoint = '/api/v2/events/9', 'POST', $event);
         $this->printResult($endpoint, 'create', $res);
         $data = $res->getData(true);
         
@@ -89,10 +125,6 @@ class Test
             echo "Aborting...\n";
             return $this;
         }
-        
-        // list
-        $res = $this->request($endpoint = '/api/v2/events', 'GET');
-        $this->printResult($endpoint, 'list', $res);
         
         // one
         $res = $this->request($endpoint = '/api/v2/events/'.$data['id'], 'GET');
