@@ -16,7 +16,7 @@ nvSession:
     session_time:
       type:          timestamp
       notnull:       true
-      default:       DEFAULT now()
+      default:       now()
     is_locked:
       type:          boolean
       default:       false
